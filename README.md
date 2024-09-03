@@ -53,32 +53,33 @@ yarn build
 
 ## Типы данных
 
-interface IProductItem {
-id: string - id товара
-description: string - описание
-image: string - картинка
-title: string - название
-category: CategoryProduct - категория
-price: number | null - стоимость
+interface IProductItem {  
+id: string - id товара  
+description: string - описание  
+image: string - картинка  
+title: string - название  
+category: CategoryProduct - категория  
+price: number | null - стоимость  
 }
 
-type CategoryProduct = "софт-скил" | "другое" | "дополнительное" | "кнопка" | "хард-скил"
+type CategoryProduct  
+"софт-скил" | "другое" | "дополнительное" | "кнопка" | "хард-скил"
 
-interface IOrder {
-payment: OrderPayment - тип оплаты
-email: string - email покупателя
-phone: string - телефон покупателя
-address: string - адрес покупателя
-total: number - сумма заказа
-items: IProduct[] - список товаров в заказе
-errors: FormErrors - ошибки формы
+interface IOrder {  
+payment: OrderPayment - тип оплаты  
+email: string - email покупателя  
+phone: string - телефон покупателя  
+address: string - адрес покупателя  
+total: number - сумма заказа  
+items: IProduct[] - список товаров в заказе  
+errors: FormErrors - ошибки формы  
 }
 
 type OrderPayment = "online" | "cash"
 
-interface IBasket {
-list: HTMLElement[];
-total: number;
+interface IBasket {  
+list: HTMLElement[];  
+total: number;  
 }
 
 ## Описание базовых классов
