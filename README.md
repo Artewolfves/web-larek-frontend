@@ -71,7 +71,7 @@ email: string - email покупателя
 phone: string - телефон покупателя  
 address: string - адрес покупателя  
 total: number - сумма заказа  
-items: IProduct[] - список товаров в заказе  
+items: IProductItem[] - список товаров в заказе  
 errors: FormErrors - ошибки формы  
 }
 
@@ -158,10 +158,8 @@ description: string;
 Методы:
 
 - `setProducts` - записывает товары для главной страницы
-- `selectProduct` - выбор товара для отображения в модальном окне
 - `addProductBasket` - добавление товара в корзину
 - `removeProductBasket` - удаление товара из корзины
-- `getBasketProducts` - получение товаров в корзине
 - `getTotalPrice` - получение стоимости всей корзины
 - `clearBasket` - очищает корзину
 - `clearOrder` - очищает текущий заказ
