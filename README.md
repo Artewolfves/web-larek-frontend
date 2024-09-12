@@ -58,12 +58,9 @@ id: string - id товара
 description: string - описание  
 image: string - картинка  
 title: string - название  
-category: CategoryProduct - категория  
+category: string - категория  
 price: number | null - стоимость  
 }
-
-type CategoryProduct  
-"софт-скил" | "другое" | "дополнительное" | "кнопка" | "хард-скил"
 
 interface IOrder {  
 payment: OrderPayment - тип оплаты  

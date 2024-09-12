@@ -73,7 +73,7 @@ export class AppModel extends Model<IAppModel> {
             const emailError = !this.order.email.match(/^\S+@\S+\.\S+$/)
                 ? 'email'
                 : '';
-            const phoneError = !this.order.phone.match(/^\+7\d{10}$/)
+            const phoneError = !this.order.phone.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/) 
                 ? 'телефон'
                 : '';
 

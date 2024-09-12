@@ -1,4 +1,4 @@
-import { ListItem, CategoryProduct, TBasketProduct } from "../types";
+import { ListItem, TBasketProduct } from "../types";
 import { Component } from "./base/component";
 import { ensureElement } from "../utils/utils";
 
@@ -11,7 +11,7 @@ export interface IProductView {
     description: string;
     image: string;
     title: string;
-    category: CategoryProduct;
+    category: string;
     price: string;
     button: string;
     status: boolean;
@@ -23,6 +23,14 @@ export class ProductView extends Component<IProductView> {
     private _category: HTMLElement;
     private _price: HTMLElement;
     protected _button: HTMLButtonElement;
+    protected _colors = <Record<string, string>>{
+        "софт-скил": "soft",
+        "хард-скил": "hard",
+        "другое": "other",
+        "дополнительное": "additional",
+        "кнопка": "button",
+    }
+    
 
     constructor(container: HTMLElement, actions: IProductActions) {
         super(container);
@@ -50,14 +58,14 @@ export class ProductView extends Component<IProductView> {
         this.setImage(this._image, value, this.title)
     }
 
-    set category(value: keyof typeof CategoryProduct) {
+    set category(value: string) {
         if (this._category) {
             this.setText(this._category, value);
-            const categoryStyle = `card__category_${CategoryProduct[value]}`;
-            this.toggleClass(this._category, categoryStyle, true);
+            this._category.className = `card__category card__category_${this._colors[value]}`
         }
     }
 
+    
     set price(value: string) {
         this.setText(this._price, value)
     }
@@ -86,6 +94,7 @@ export class ProductViewModal extends ProductView {
     set description(value: string) {
         this.setText(this._description, value)
     }
+    
 }
 
 export class ProductInBasketView extends Component<TBasketProduct | ListItem> {

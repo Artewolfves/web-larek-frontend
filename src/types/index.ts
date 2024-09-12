@@ -3,16 +3,8 @@ export interface IProductItem {
     description: string;
     image: string;
     title: string;
-    category: CategoryProduct;
+    category: string;
     price: number | null;
-}
-
-export enum CategoryProduct {
-    'софт-скил' = 'soft',
-    'другое' = 'other',
-    'хард-скил' = 'hard',
-    'дополнительное' = 'additional',
-    'кнопка' = 'button'
 }
 
 export interface IProductList {
