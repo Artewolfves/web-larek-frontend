@@ -195,13 +195,9 @@ events.on(/(^order|^contacts):submit/, () => {
                     description: !result.error ? `Списано ${result.total} синапсов` : result.error,
                 }),
             });
+            appModel.clearBasket();
+            orderForm.resetPaymentButtons();
+            appModel.clearOrder();
         })
         .catch(console.error);
 });
-
-events.on('order:clear', () => {
-    appModel.clearBasket();
-    appModel.clearOrder();
-    orderForm.resetPaymentButtons();
-});
-
